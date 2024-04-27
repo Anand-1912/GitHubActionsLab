@@ -1,0 +1,11 @@
+name: Workflow with Multiline Shell Command
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Cloud Providers
+        run: |
+          echo "Microsoft Azure"
+          echo "AWS"
+          echo "GCP"
