@@ -1,0 +1,22 @@
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-requiring-successful-dependent-jobs
+
+name: Serial Jobs Workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sleep and say hello
+        run: |
+          echo "first - job: sleep for 5 seconds"
+          sleep 5
+          echo "first - job: Hello!"
+  second-job:
+    needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: sleep and say hi
+        run: |
+          echo "second - job: sleep for 3 seconds"
+          sleep 3
+          echo "second - job: Hi!"
