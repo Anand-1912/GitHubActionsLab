@@ -15,19 +15,19 @@ on:
         branches:
             - "task/**"
     schedule:
-        - cron: "9 8 28 4 *"
+        - cron: "17 8 28 4 *"
 
 jobs:
     first-job:
         runs-on: ubuntu-latest
         steps:
-            - name: Print Hello
+            - name: Print Time
               run: |
-                echo "Hello!"
-            - name: Print Hello Again if it is Scheduled
+                date "+%Y-%m-%d %H:%M:%S"
+            - name: Print Hello if it is Scheduled
               if: github.event.schedule == '9 8 28 4 *'
               run: |
-                echo "Hello, I have scheduled!"
+                echo "Hello, I have been scheduled!"
 
 
     
