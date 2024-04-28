@@ -1,0 +1,36 @@
+
+# Multiple Events Triggered Workflow
+#https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-activity-types-and-filters-with-multiple-events
+
+# Schedule Events
+#https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+
+#POSIX Cron
+#https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07
+
+name: Scheduled Workflow
+on: 
+    workflow_dispatch:
+    push:
+        branches:
+            - "task/**"
+    schedule:
+        - cron: "9 8 28 4 *"
+
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Hello
+              run: |
+                echo "Hello!"
+            - name: Print Hello Again if it is Scheduled
+              if: github.event.schedule == '9 8 28 4 *'
+              run: |
+                echo "Hello, I have scheduled!"
+
+
+    
+
+
+
