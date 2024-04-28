@@ -1,0 +1,12 @@
+name: Issues Workflow
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened]
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the Event
+        run: |
+          echo "${{ github.Event}}"
