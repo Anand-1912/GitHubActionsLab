@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: Print the Event
         run: |
-          echo "${{ toJSON(github.Event)}}"
+          echo "${{ toJSON(github.event)}}"
