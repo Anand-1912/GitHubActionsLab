@@ -1,0 +1,10 @@
+name: Delete Event Workflow
+on: delete
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Event
+        run: |
+          echo "A Git Ref has been deleted"
+          echo "${{toJSON(github.event)}}"
