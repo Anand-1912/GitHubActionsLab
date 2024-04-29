@@ -2,6 +2,8 @@
 
 # This workflow triggers on the Push events on the main branch or any branch whose name starts with "task/"
 
+# Push event has been used along with branches filter here.
+
 name: Push Workflow
 on:
   push:
