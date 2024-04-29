@@ -1,7 +1,7 @@
 name: Pull Request Event Workflow
 on:
   pull_request:
-    types: [opened]
+    types: [opened, assigned]
 jobs:
   first-job:
     runs-on: ubuntu-latest
