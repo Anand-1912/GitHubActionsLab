@@ -1,9 +1,6 @@
-# Issues events used along with Activity type [opened]
-
-name: Issues Workflow
+name: Pull Request Event Workflow
 on:
-  workflow_dispatch:
-  issues:
+  pull_request:
     types: [opened]
 jobs:
   first-job:
