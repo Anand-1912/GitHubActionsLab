@@ -14,3 +14,5 @@ jobs:
           echo "$GITHUB_WORKSPACE"
       - name: List Files and Folder recursively
         run: find $GITHUB_WORKSPACE
+      - name: List Files and Folder
+        run: ls
