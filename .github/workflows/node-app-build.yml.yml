@@ -6,12 +6,13 @@ on:
       - main
 env:
   WORKING_DIRECTORY: "${{ github.workspace }}/JobArtifactsAndOutputs/Project"
+  PROJECT_DIRECTORY: "${{ github.workspace }}/JobArtifactsAndOutputs/Project/dist"
 jobs:
   test:
     defaults:
       run:
         shell: bash
-        working-directory: "${{ github.workspace }}/JobArtifactsAndOutputs/Project"
+        working-directory: ${{ env.WORKING_DIRECTORY }}
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -27,7 +28,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: "${{ github.workspace }}/JobArtifactsAndOutputs/Project"
+        working-directory: ${{ env.WORKING_DIRECTORY }}
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -41,16 +42,12 @@ jobs:
         with:
           name: dist-files
           path: |
-            "${{ github.workspace }}/JobArtifactsAndOutputs/Project/dist"
-            "${{ github.workspace }}/JobArtifactsAndOutputs/Project/package.json"
+            ${{ env.PROJECT_DIRECTORY }}
+            ${{ env.WORKING_DIRECTORY }}/package.json
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: "${{ github.workspace }}/JobArtifactsAndOutputs/Project"
     steps:
       - name: Deploy
         run: echo "Deploying..."
