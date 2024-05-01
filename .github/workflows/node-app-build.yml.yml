@@ -1,0 +1,56 @@
+name: Deploy website
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+env:
+  WORKING_DIRECTORY: "${{ github.workspace }}/JobArtifactsAndOutputs/Project"
+jobs:
+  test:
+    defaults:
+      run:
+        shell: bash
+        working-directory: $WORKING_DIRECTORY
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint code
+        run: npm run lint
+      - name: Test code
+        run: npm run test
+  build:
+    needs: test
+    defaults:
+      run:
+        shell: bash
+        working-directory: $WORKING_DIRECTORY
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Build website
+        run: npm run build
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-files
+          path: |
+            "$WORKING_DIRECTORY/dist"
+            "$WORKING_DIRECTORY/package.json"
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: "${{ github.workspace }}/JobArtifactsAndOutputs/Project"
+    steps:
+      - name: Deploy
+        run: echo "Deploying..."
