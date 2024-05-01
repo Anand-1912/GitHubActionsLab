@@ -3,8 +3,6 @@ on:
   push:
     paths:
       - "**/README.md"
-    paths-ignore:
-      - ".github/workflows/*"
 jobs:
   first-job:
     runs-on: ubuntu-latest
