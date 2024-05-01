@@ -1,3 +1,7 @@
+# Note: By default, PRs based on Forks DO NOT trigger a workflow
+# First time contributors must be approved manually
+# This is not applicable for Collaborators
+
 name: Pull Request Event Workflow
 on:
   pull_request:
