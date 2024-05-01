@@ -1,0 +1,11 @@
+name: Path Filters Workflow
+on:
+  push:
+    paths:
+      - "**/README.md"
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Message
+        run: echo "A README.md file has been updated"

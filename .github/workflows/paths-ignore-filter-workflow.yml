@@ -1,8 +1,6 @@
-name: Path Filters Workflow
+name: Path Ignore Filter Workflow
 on:
   push:
-    paths:
-      - "**/README.md"
     paths-ignore:
       - ".github/workflows/*"
 jobs:
@@ -10,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Message
-        run: echo "A README.md file has been updated"
+        run: echo "Hello from Path Ignore Filter Workflow"
