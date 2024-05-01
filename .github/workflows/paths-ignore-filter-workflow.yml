@@ -1,0 +1,11 @@
+name: Path Ignore Filter Workflow
+on:
+  push:
+    paths-ignore:
+      - ".github/workflows/*"
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Message
+        run: echo "Hello from Path Ignore Filter Workflow"
