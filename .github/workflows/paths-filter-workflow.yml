@@ -1,3 +1,5 @@
+# Workflow runs if README.md has been changed, then committed and pushed. (README.md is one of the changed files)
+
 name: Path Filters Workflow
 on:
   push:
