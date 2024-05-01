@@ -4,6 +4,8 @@
 
 # Push event has been used along with branches filter here.
 
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
+
 name: Push Workflow
 on:
   push:
