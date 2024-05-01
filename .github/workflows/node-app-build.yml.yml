@@ -11,7 +11,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: $WORKING_DIRECTORY
+        working-directory: "${{ github.workspace }}/JobArtifactsAndOutputs/Project"
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -27,7 +27,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: $WORKING_DIRECTORY
+        working-directory: "${{ github.workspace }}/JobArtifactsAndOutputs/Project"
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -41,8 +41,8 @@ jobs:
         with:
           name: dist-files
           path: |
-            "$WORKING_DIRECTORY/dist"
-            "$WORKING_DIRECTORY/package.json"
+            "${{ github.workspace }}/JobArtifactsAndOutputs/Project/dist"
+            "${{ github.workspace }}/JobArtifactsAndOutputs/Project/package.json"
 
   deploy:
     needs: build
