@@ -22,7 +22,7 @@ jobs:
         run: echo "${{ toJSON(github.triggering_actor)}}"
 
   second-job:
-    if: ( github.event_name == 'push' || ( github.event_name == 'workflow_dispatch' && github.actor == 'wendy-cameron-bzy')) && github.ref == 'refs/heads/main'
+    if: ( github.event_name == 'push' || ( github.event_name == 'workflow_dispatch' && github.triggering_actor == 'Anand-1912')) && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     name: second-job
     needs: first-job
