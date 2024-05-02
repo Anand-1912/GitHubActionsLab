@@ -1,7 +1,5 @@
 name: Workflow Dispatch Conditional Workflow
-on:
-  workflow_dispatch:
-  push:
+on: [workflow_dispatch, push]
 jobs:
   first-job:
     runs-on: ubuntu-latest
@@ -11,9 +9,9 @@ jobs:
       - name: Print Message
         run: echo "Hello from First Job"
       - name: Print Event
-        run: "${{  toJSON(github.event) }}"
-      - name: Print
-        run: "${{  toJSON(github.ref) }}"
+        run: echo "${{  toJSON(github.event_name) }}"
+      - name: Print Git Ref
+        run: echo "${{  toJSON(github.ref) }}"
 
   second-job:
     if: ( github.event_name == 'push' || github.event_name == 'workflow_dispatch' ) && github.ref == 'refs/heads/main'
