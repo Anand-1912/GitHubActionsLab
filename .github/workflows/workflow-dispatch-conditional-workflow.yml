@@ -9,8 +9,6 @@ jobs:
       - name: Print Message
         run: echo "Hello from First Job"
       - name: Print Event Name
-        run: echo "${{  toJSON(github.event) }}"
-      - name: Print Event Name
         run: echo "${{  toJSON(github.event_name) }}"
       - name: Print Git Ref
         run: echo "${{  toJSON(github.ref) }}"
@@ -18,7 +16,7 @@ jobs:
         run: echo "${{ toJSON(github.actor)}}"
       - name: Print Actor Id
         run: echo "${{ toJSON(github.actor_id)}}"
-      - name: Print Triggering Actor Id
+      - name: Print Triggering Actor
         run: echo "${{ toJSON(github.triggering_actor)}}"
 
   second-job:
