@@ -1,0 +1,27 @@
+name: Workflow Dispatch Conditional Workflow
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    name: first-job
+
+    steps:
+      - name: Print Message
+        run: echo "Hello from First Job"
+      - name: Print Event
+        run: "${{  toJSON(github.event) }}"
+      - name: Print
+        run: "${{  toJSON(github.ref) }}"
+
+  second-job:
+    if: ( github.event_name == 'push' || github.event_name == 'workflow_dispatch' ) && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    name: second-job
+    needs: first-job
+
+    steps:
+      - name: Print Message
+        run: |
+          echo "Hello from Second Job"
