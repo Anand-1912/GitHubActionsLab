@@ -1,0 +1,19 @@
+name: Basic Job Workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    outputs:
+      output1: value1
+      output2: value2
+    steps:
+      - name: Print Hello
+        run: echo "Hello!"
+  second-job:
+    needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print outpust from first-job
+        run: |
+          echo "output1: ${{needs.first-job.outputs.output1}}"
+          echo "output2: ${{needs.first-job.outputs.output2}}"
