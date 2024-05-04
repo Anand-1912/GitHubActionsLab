@@ -8,20 +8,21 @@ jobs:
       second-step-output: ${{steps.step2.outputs.test}}
     steps:
       - id: step1
-        name: first-name
+        name: first-step
         run: |
           echo "test=1">>"$GITHUB_OUTPUT"
       - id: step2
-        name: first-name
+        name: second-step
         run: |
           echo "test=2">>"$GITHUB_OUTPUT"
-      - name: step 3
+          echo "test=3">>"$GITHUB_OUTPUT"
+      - name: third-step
         run: |
-          echo "This is step 2"
-      - name: step 4 - Print Steps Context
+          echo "This is step 3"
+      - name: fourth-step - Print Steps Context
         run: |
           echo "${{ toJSON(steps)}}"
-      - name: step 5 - Print Github Output
+      - name: fifth-step - Print Github Output
         run: |
           cat "$GITHUB_OUTPUT"
   second-job:
