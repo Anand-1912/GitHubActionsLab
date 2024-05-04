@@ -1,0 +1,16 @@
+name: Print Environment Variables Workflow
+on: [workflow_dispatch]
+env:
+  workflow_var1: value1
+  workflow_var2: value2
+jobs:
+  first-job:
+    name: first_job
+    runs-on: ubuntu-latest
+    env:
+      job_var1: value3
+      job_var2: value4
+    steps:
+      - name: Print Environment Variables
+        run: |
+          echo "${{ toJson(env)}}"
