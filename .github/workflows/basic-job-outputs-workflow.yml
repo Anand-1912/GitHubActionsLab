@@ -13,7 +13,7 @@ jobs:
     needs: first-job
     runs-on: ubuntu-latest
     steps:
-      - name: Print outpust from first-job
+      - name: Print outputs from first-job
         run: |
           echo "output1: ${{needs.first-job.outputs.output1}}"
           echo "output2: ${{needs.first-job.outputs.output2}}"
