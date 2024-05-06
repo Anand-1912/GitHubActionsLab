@@ -3,6 +3,9 @@ on: workflow_dispatch
 jobs:
   first-job:
     runs-on: ubuntu-latest
+    # The outputs defined as the expressions will be evaluated at the end of the job execution.cancel-timeout-minutes:
+    # Multiple outputs defined using the same names will be overriden. (refer second-step)
+
     outputs:
       first-step-output: ${{steps.step1.outputs.test}}
       second-step-output: ${{steps.step2.outputs.test}}
