@@ -13,4 +13,4 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: "Print the Environment Variable"
-        run: Get-Item -Path ENV:TEST_ENV_VARIABLE
+        run: Get-Item -Path ENV:MY_ENV_VARIABLE
