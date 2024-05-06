@@ -3,11 +3,17 @@ on:
   push:
     branches:
       - main
+      - task/update
       - dev
 jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
+    env:
+      MONGODB_CLUSTER_ADDRESS: cluster0.qmen2am.mongodb.net
+      MONGODB_USERNAME: ${{secrets.MONGODB_USERNAME}}
+      MONGODB_PASSWORD: ${{secrets.MONGODB_PASSWORD}}
+      PORT: 8080
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -19,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run server
-        run: npm start & npx wait-on http://127.0.0.1:XYZ
+        run: npm start & npx wait-on http://127.0.0.1:$PORT
       - name: Run tests
         run: npm test
       - name: Output information
@@ -29,5 +35,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output information
-        run: |        
+        run: |
           echo "..."
