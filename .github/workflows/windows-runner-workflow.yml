@@ -1,0 +1,16 @@
+# This is a simple workflow that uses a Windows Runner
+
+# The Environment Variables defined in the workflow will be configured as Runner's Environment variables.
+
+# Get-Item Powershell command has been used to get the environment variable and display it.
+
+name: Windows Runner Workflow
+on: [push, workflow_dispatch]
+jobs:
+  first-job:
+    env:
+      MY_ENV_VARIABLE: some-value
+    runs-on: windows-latest
+    steps:
+      - name: "Print the Environment Variable"
+        run: Get-Item -Path ENV:MY_ENV_VARIABLE
