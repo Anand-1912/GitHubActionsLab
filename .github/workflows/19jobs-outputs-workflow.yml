@@ -3,7 +3,7 @@ on: workflow_dispatch
 jobs:
   first-job:
     runs-on: ubuntu-latest
-    # The outputs defined as the expressions will be evaluated at the end of the job execution.cancel-timeout-minutes:
+    # The outputs defined as the expressions will be evaluated at the end of the job execution.
     # Multiple outputs defined using the same names will be overriden. (refer second-step)
 
     outputs:
