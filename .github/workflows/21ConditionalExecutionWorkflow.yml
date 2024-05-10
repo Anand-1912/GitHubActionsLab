@@ -6,6 +6,7 @@ jobs:
     steps:
       - name: first-step
         run: |
+          sleep 10
           echo "Hello From First Step"
       # This step will be failed and by the default behaviour the subsequent steps will be failed and so will be the current & dependent jobs.
       - name: failure-step
@@ -27,6 +28,7 @@ jobs:
     steps:
       - name: Print Hello
         run: |
+          sleep 10
           echo "Hello"
       - id: second-step
         if: success()
