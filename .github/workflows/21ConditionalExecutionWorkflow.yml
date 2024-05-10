@@ -1,0 +1,56 @@
+name: Conditional Execution Workflow 1
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first-step
+        run: |
+          echo "Hello From First Step"
+      # This step will be failed and by the default behaviour the subsequent steps will be failed and so will be the current & dependent jobs.
+      - name: failure-step
+        run: |
+          exit 1
+      - name: last-step
+        run: |
+          echo "I won't be executed because of failure-step"
+
+  second-job:
+    needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello
+        run: |
+          echo "Hello, I will not be executed as the first-job failed"
+  third-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello
+        run: |
+          echo "Hello"
+      - id: second-step
+        if: success()
+        name: failure-step
+        run: |
+          exit 1
+
+      # the failure() function ensures that the below step gets executed when atleast one of the previous steps is failed.
+      # this is required to change the default behaviour of failing all subsequent steps when a step is failed.
+
+      # steps.second-step.outcome == 'failure' => this ensures that the below step gets executed only when the second-step is failed.
+      - name: third-step
+        if: failure() && steps.second-step.outcome == 'failure'
+        run: |
+          echo "I get executed if and only if the second-step is failed"
+      - name: fourth-step
+        if: always()
+        run: |
+          echo "I will be always executed irrespective of the outcomes of previous steps (success or failure)"
+      - name: fifth-step
+        if: success()
+        run: |
+          echo "I will be executed when no step before is failed"
+      - name: last-step
+        if: cancelled()
+        run: |
+          echo "I will be executed when the workflow is cancelled"
