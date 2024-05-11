@@ -9,3 +9,5 @@ GitHub Action Lab
 [Expressions](https://docs.github.com/en/actions/learn-github-actions/expressions#about-expressions)
 
 [Contexts](https://docs.github.com/en/actions/learn-github-actions/contexts)
+
+[Matrix](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs)
