@@ -1,0 +1,35 @@
+name: Continue On Error Workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first-step
+        id: first-step
+        run: |
+          echo "first-step"
+      - name: second-step
+        id: second-step
+        continue-on-error: true
+        run: |
+          echo "second-step"
+          exit 1
+      - name: third-step
+        run: |
+          echo "third-step"
+          echo "outcome of first-step: ${{steps.first-step.outcome}}"
+          echo "conclusion of first-step: ${{steps.first-step.conclusion}}"
+          echo "outcome of second-step: ${{steps.second-step.outcome}}"
+          echo "conclusion of second-step: ${{steps.second-step.conclusion}}"
+      - name: fourth-step
+        id: fourth-step
+        run: |
+          echo "fourth-step"
+
+  second-job:
+    runs-on: ubuntu-latest
+    needs: first-job
+    steps:
+      - name: first-step
+        run: |
+          echo "result of first-job: ${{needs.first-job.result}}"
