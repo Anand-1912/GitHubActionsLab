@@ -25,3 +25,30 @@
             run : |
              echo "Hello"
    ```
+
+---
+
+#### Status Check Functions
+
+---
+
+[reference](https://docs.github.com/en/actions/learn-github-actions/expressions#status-check-functions)
+
+**success**
+
+Returns true when all previous steps have succeeded.
+
+**always**
+
+Causes the step to always execute, and returns true, even when canceled
+
+> [!WARNING]  
+> Avoid using always for any task that could suffer from a critical failure, for example: getting sources, otherwise the workflow may hang until it times out. If you want to run a job or step regardless of its success or failure, use the recommended alternative: if: ${{ !cancelled() }}
+
+**cancelled**
+
+Returns true if the workflow was canceled.
+
+**failure**
+
+Returns true when any previous step of a job fails. If you have a chain of dependent jobs, failure() returns true if any ancestor job fails.
