@@ -16,9 +16,11 @@ jobs:
             operating-system: ubuntu-latest
     runs-on: ${{ matrix.operating-system}}
     steps:
+      - name: fail-step
+        if: matrix.node-version == 10 && matrix.operating-system == 'ubuntu-latest'
+        run: |
+          echo "failing..." 
+          exit 1
       - name: Print Combinations
         run: |
           echo -e "\e[32m The node with version ${{matrix.node-version}} is installed in the operating system ${{matrix.operating-system}} \e[0m"
-          if [ "${{matrix.node-version}}" = "10" ]; then
-            exit 1
-          fi
