@@ -17,3 +17,11 @@
 2. using **continue-on-error**
 
    can be used with Steps
+
+   ```
+      eg: - name: Print Hello
+            continue-on-error: true
+            id: hello-step
+            run : |
+             echo "Hello"
+   ```

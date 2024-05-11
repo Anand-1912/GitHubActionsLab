@@ -47,7 +47,7 @@ jobs:
       - name: fourth-step
         if: always()
         run: |
-          echo "I will be always executed irrespective of the outcomes of previous steps (success or failure)"
+          echo "I will be always executed irrespective of the outcomes of previous steps (success or failure) or cancelled"
       - name: fifth-step
         if: success()
         run: |
