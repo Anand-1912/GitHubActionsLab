@@ -17,10 +17,10 @@ jobs:
       - name: third-step
         run: |
           echo "third-step"
-          echo "outcome of first-step: ${{steps.first-step.outcome}}"
-          echo "conclusion of first-step: ${{steps.first-step.conclusion}}"
-          echo "outcome of second-step: ${{steps.second-step.outcome}}"
-          echo "conclusion of second-step: ${{steps.second-step.conclusion}}"
+          echo -e "\e[32m outcome of first-step: ${{steps.first-step.outcome}} \e[0m"
+          echo -e "\e[32m conclusion of first-step: ${{steps.first-step.conclusion}} \e[0m"
+          echo -e "\e[31m outcome of second-step: ${{steps.second-step.outcome}} \e[0m"
+          echo -e "\e[32m but conclusion of second-step: ${{steps.second-step.conclusion}} \e[0m"
       - name: fourth-step
         id: fourth-step
         run: |
