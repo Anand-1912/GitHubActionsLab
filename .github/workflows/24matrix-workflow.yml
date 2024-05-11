@@ -1,0 +1,24 @@
+name: Matrix Workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    continue-on-error: true
+    strategy:
+      max-parallel: 3
+      matrix:
+        node-version: [10, 12, 14, 16]
+        operating-system: [ubuntu-latest, windows-latest]
+        include:
+          - node-version: 18
+            operating-system: windows-latest
+        exclude:
+          - node-version: 14
+            operating-system: ubuntu-latest
+    runs-on: ${{ matrix.operating-system}}
+    steps:
+      - name: Print Combinations
+        run: |
+          echo -e "\e[32m The node with version ${{matrix.node-version}} is installed in the operating system ${{matrix.operating-system}} \e[0m"
+          if [ "${{matrix.node-version}}" = "10" ]; then
+            exit 1
+          fi

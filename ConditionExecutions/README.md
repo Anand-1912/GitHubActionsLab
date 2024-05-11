@@ -16,7 +16,7 @@
 
 2. using **continue-on-error**
 
-   can be used with Steps
+   can be used with Jobs (in matrix strategy) and Steps
 
    ```
       eg: - name: Print Hello
