@@ -1,0 +1,37 @@
+name: Conditional Job Execution Workflow
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run-tests
+        run: |
+          echo -e "\e[34m executing tests... \e[0m"
+          echo -e "\e[32m testing completed! \e[0m"
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: build-code
+        run: |
+          echo -e "\e[34m building code.. \e[0m"
+          echo -e "\e[32m build completed! \e[0m"
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy-code
+        run: |
+          echo -e "\e[34m deploying code...\e[0m"
+          echo -e "\e[31m Server unreachable! \e[0m"
+          exit 1
+
+  # the "Report" job gets executed only when there is a failure occurs in test or build or deploy
+  report:
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+      - name: report
+        run: |
+          echo -e "\e[32m reporting....done! \e[0m"
