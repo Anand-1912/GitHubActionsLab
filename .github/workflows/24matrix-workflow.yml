@@ -23,4 +23,4 @@ jobs:
           exit 1
       - name: Print Combinations
         run: |
-          echo -e "\e[32m The node with version ${{matrix.node-version}} is installed in the operating system ${{matrix.operating-system}} \e[0m"
+          echo "The node with version ${{matrix.node-version}} is installed in the operating system ${{matrix.operating-system}}"
