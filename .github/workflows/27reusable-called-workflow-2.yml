@@ -47,8 +47,8 @@ jobs:
         run: |
           op1=${{inputs.operand1}}
           op2=${{inputs.operand2}}
-          sum=$(( num1 + num2 ))
-          echo "The sum of $num1 and $num2 is $sum"
+          sum=$(( op1 + op2 ))
+          echo "The sum of $op1 and $op2 is $sum"
           echo "result=$sum" >> $GITHUB_OUTPUT
 
       - name: step-subtract
@@ -57,8 +57,8 @@ jobs:
         run: |
           op1=${{inputs.operand1}}
           op2=${{inputs.operand2}}
-          difference=$(( num1 - num2 ))
-          echo "The difference of $num1 and $num2 is $difference"
+          difference=$(( op1 - op2 ))
+          echo "The difference of $op1 and $op2 is $difference"
           echo "result=$difference" >> $GITHUB_OUTPUT
 
       - name: step-multiply
@@ -67,8 +67,8 @@ jobs:
         run: |
           op1=${{inputs.operand1}}
           op2=${{inputs.operand2}}
-          product=$(( num1 * num2 ))
-          echo "The product of $num1 and $num2 is $product"
+          product=$(( op1 * op2 ))
+          echo "The product of $op1 and $op2 is $product"
           echo "result=$sum" >> $GITHUB_OUTPUT
 
       - name: step-divide
@@ -77,6 +77,6 @@ jobs:
         run: |
           op1=${{inputs.operand1}}
           op2=${{inputs.operand2}}
-          quotient=$(( num1 / num2 ))
-          echo "The quotient when $num1 is divided by $num2 is $quotient"
+          quotient=$(( op1 / op2 ))
+          echo "The quotient when $op1 is divided by $op2 is $quotient"
           echo "result=$quotient" >> $GITHUB_OUTPUT
