@@ -1,0 +1,82 @@
+# Note:
+
+# This workflow serves as an instructional example to showcase the concept of reusable workflows.
+# It is not intended to fulfill any specific real-world use case, but rather to demonstrate how reusable workflows can be structured and utilized effectively within GitHub Actions
+
+name: Reusable Called Workflow With Outputs
+on:
+  workflow_call:
+    inputs:
+      operand1:
+        type: number
+        required: true
+        description: "Operand 1"
+      operand2:
+        type: number
+        required: true
+        description: "Operand 2"
+      operation:
+        type: string
+        required: true
+        description: "Operation to perform on the operands. valid inputs are +,-,*,/"
+    outputs:
+      sum:
+        description: "sum"
+        value: ${{ jobs.first-job.outputs.sum}}
+      difference:
+        description: "difference"
+        value: ${{ jobs.first-job.outputs.difference}}
+      product:
+        description: "product"
+        value: ${{ jobs.first-job.outputs.product}}
+      quotient:
+        description: "quotient"
+        value: ${{ jobs.first-job.outputs.quotient}}
+jobs:
+  first-job:
+    outputs:
+      sum: ${{steps.step-add.outputs.result}}
+      difference: ${{steps.step-substract.outputs.result}}
+      product: ${{steps.step-multiply.outputs.result}}
+      quotient: ${{steps.step-divide.outputs.result}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: step-add
+        id: step-add
+        if: inputs.operation == '+'
+        run: |
+          op1=${{inputs.operand1}}
+          op2=${{inputs.operand2}}
+          sum=$(( num1 + num2 ))
+          echo "The sum of $num1 and $num2 is $sum"
+          echo "result=$sum" >> $GITHUB_OUTPUT
+
+      - name: step-subtract
+        id: step-substract
+        if: inputs.operation == '-'
+        run: |
+          op1=${{inputs.operand1}}
+          op2=${{inputs.operand2}}
+          difference=$(( num1 - num2 ))
+          echo "The difference of $num1 and $num2 is $difference"
+          echo "result=$difference" >> $GITHUB_OUTPUT
+
+      - name: step-multiply
+        id: step-multiply
+        if: inputs.operation == '*'
+        run: |
+          op1=${{inputs.operand1}}
+          op2=${{inputs.operand2}}
+          product=$(( num1 * num2 ))
+          echo "The product of $num1 and $num2 is $product"
+          echo "result=$sum" >> $GITHUB_OUTPUT
+
+      - name: step-divide
+        id: step-divide
+        if: inputs.operation == '/'
+        run: |
+          op1=${{inputs.operand1}}
+          op2=${{inputs.operand2}}
+          quotient=$(( num1 / num2 ))
+          echo "The quotient when $num1 is divided by $num2 is $quotient"
+          echo "result=$quotient" >> $GITHUB_OUTPUT
