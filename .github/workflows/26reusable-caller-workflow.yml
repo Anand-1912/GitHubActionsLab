@@ -11,3 +11,16 @@ jobs:
     with:
       text-to-print: "Hello, World"
       colour: blue
+  second-job:
+    uses: "./.github/workflows/27reusable-called-workflow-2.yml"
+    with:
+      operand1: 10
+      operand2: 5
+      operation: "+"
+  third-job:
+    needs: second-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Sum
+        run: |
+          echo "${{needs.second-job.outputs.sum}}"
