@@ -1,0 +1,35 @@
+# https://docs.github.com/en/actions/using-workflows/reusing-workflows#creating-a-reusable-workflow
+
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callinputsinput_idtype
+
+# This is a Reusable workflow that prints the input text in the chosen colour.
+
+name: Reusable Workflow - Print Text in Colour
+on:
+  workflow_call:
+    inputs:
+      text-to-print:
+        required: true
+        description: "Text to be printed in the colour"
+        type: string
+      colour:
+        required: true
+        description: "supported colours - red, blue and green. pass in lowercase"
+        default: "red"
+        type: string
+jobs:
+  print-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print in Red
+        if: inputs.colour == 'red' || !(inputs.colour == 'blue' || inputs.colour == 'green' )
+        run: |
+          echo -e "\e[31m ${{inputs.text-to-print}} \e[0m"
+      - name: Print in Green
+        if: inputs.colour == 'green'
+        run: |
+          echo -e "\e[32m ${{inputs.text-to-print}} \e[0m"
+      - name: Print in Blue
+        if: inputs.colour == 'blue'
+        run: |
+          echo -e "\e[34m ${{inputs.text-to-print}} \e[0m"

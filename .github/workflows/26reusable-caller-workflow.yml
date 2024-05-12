@@ -1,0 +1,8 @@
+name: Reusable Workflow - Caller Workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    uses: "./.github/workflows/25reusable-called-workflow.yml"
+    with:
+      text-to-print: "Hello, World"
+      colour: blue
