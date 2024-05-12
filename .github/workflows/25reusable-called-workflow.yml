@@ -4,6 +4,11 @@
 
 # This is a Reusable workflow that prints the input text in the chosen colour.
 
+# Note:
+
+# This workflow serves as an instructional example to showcase the concept of reusable workflows.
+# It is not intended to fulfill any specific real-world use case, but rather to demonstrate how reusable workflows can be structured and utilized effectively within GitHub Actions
+
 name: Reusable Workflow - Print Text in Colour
 on:
   workflow_call:
