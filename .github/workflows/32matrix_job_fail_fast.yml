@@ -1,0 +1,40 @@
+name: Matrix Job - Fail Fast Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      fail_fast:
+        description: "Should Matrix Fail Fast?"
+        required: true
+        type: boolean
+        default: true
+jobs:
+  matrix-job:
+    continue-on-error: ${{inputs.fail_fast}}
+    strategy:
+      fail-fast: ${{inputs.fail_fast}}
+      matrix:
+        num1: [2, 4, 6, 8]
+        num2: [3, 5, 7, 9]
+        include:
+          - num1: 10
+            num2: 11
+        exclude:
+          - num1: 4
+            num2: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: fail(if num1 is 2 and num2 is 3)
+        if: matrix.num1 == 2  && matrix.num2 ==3
+        run: |
+          exit 1
+      - name: echo
+        run: |
+          echo "( num1: ${{matrix.num1}},num2: ${{matrix.num2}})"
+
+  dependent-job:
+    needs: matrix-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: print result of matrix job
+        run: |
+          echo "${{ needs.matrix-job.result }}"

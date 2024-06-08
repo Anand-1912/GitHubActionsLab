@@ -1,6 +1,8 @@
 GitHub Action Lab
 
 [![Path Filters Workflow](https://github.com/Anand-1912/GitHubActionsLab/actions/workflows/07paths-filter-workflow.yml/badge.svg)](https://github.com/Anand-1912/GitHubActionsLab/actions/workflows/07paths-filter-workflow.yml)
+
+[![Matrix Workflow - Fail Fast](https://github.com/Anand-1912/GitHubActionsLab/actions/workflows/32matrix_job_fail_fast.yml/badge.svg)](https://github.com/Anand-1912/GitHubActionsLab/actions/workflows/32matrix_job_fail_fast.yml)
 ---
 
 ## References
@@ -17,6 +19,50 @@ GitHub Action Lab
 > [!IMPORTANT] 
 > [Events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows)
 
+> [!IMPORTANT]
+> [Matrix Strategy](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)
+
+```
+jobs:
+  example_matrix:
+    strategy:
+      matrix:
+        version: [10, 12, 14]
+        os: [ubuntu-latest, windows-latest]
+
+```
+ - Matrix Strategy is defined at the job level.
+
+ - A job will run for each possible combination of the variables. In this example, the workflow will run six jobs, one for each combination of the os and version variables.
+
+ - A matrix will generate a maximum of **256** jobs per workflow run.This limit applies to both GitHub-hosted and self-hosted runners.
+
+ - The order of the variables in the matrix determines the order in which the jobs are created
+
+   1. {version: 10, os: ubuntu-latest}
+   2. {version: 10, os: windows-latest}
+   3. {version: 12, os: ubuntu-latest}
+   4. {version: 12, os: windows-latest}
+   5. {version: 14, os: ubuntu-latest}
+   6. {version: 14, os: windows-latest}
+
+```
+Example using continue-on-error and strategy.fail-fast
+------
+runs-on: ${{ matrix.os }}
+continue-on-error: ${{ matrix.experimental }}
+strategy:
+  fail-fast: false // Does not fail the matrix if one or more jobs fails and allows the other jobs to execute 
+  matrix:
+    node: [13, 14]
+    os: [macos-latest, ubuntu-latest]
+    experimental: [false]
+    include:
+      - node: 15
+        os: ubuntu-latest
+        experimental: true
+```
+ 
 > [!IMPORTANT]
 > [Using - Actions](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses)
 
