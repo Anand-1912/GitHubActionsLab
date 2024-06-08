@@ -52,3 +52,14 @@ Returns true if the workflow was canceled.
 **failure**
 
 Returns true when any previous step of a job fails. If you have a chain of dependent jobs, failure() returns true if any ancestor job fails.
+
+>[!IMPORTANT]
+>In GitHub Actions, if a workflow is queued but then cancelled before it actually starts executing, none of the steps within that workflow will run, even if they are configured to always execute using status check functions.
+
+However, if the workflow has started and is subsequently cancelled, the **if: always()** condition can ensure that certain steps are executed during the cancellation process. 
+
+Here’s how it works:
+
+**Queued but Not Started**: If a workflow is still in the queue and hasn't begun executing any steps, and it gets cancelled, none of the steps in that workflow will run.
+
+**Started and Then Cancelled**: If a workflow starts running and then gets cancelled partway through, steps configured with if: always() will run. This is useful for performing cleanup tasks or ensuring certain final steps always execute regardless of the outcome of previous steps or cancellation.
