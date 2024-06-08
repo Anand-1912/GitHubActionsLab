@@ -1,0 +1,23 @@
+# When a concurrent job or workflow is queued,
+# if another job or workflow using the same concurrency group in the repository is in progress,
+# the queued job or workflow will be pending.
+# Any pending job or workflow in the concurrency group will be canceled.
+# This means that there can be at most one running and one pending job in a concurrency group at any time.
+
+name: Concurrency Group Workflow 3
+run-name: first workflow in the group executed by @${{ github.actor }}
+on: workflow_dispatch
+concurrency:
+  group: "CLIQUE"
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step-1 (sleep for 20 seconds)
+        run: |
+          echo "this is Concurrency Group Workflow 3"
+          sleep 20
+      - name: step-2
+        if: ${{ cancelled() }}
+        run: |
+          echo "Another workflow from the same concurrency group has been triggered after this one got triggered"

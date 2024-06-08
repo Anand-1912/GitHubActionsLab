@@ -4,13 +4,16 @@ GitHub Action Lab
 
 ## References
 
-1.  > [!IMPORTANT] > [Workflow Syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#name)
+> [!IMPORTANT] 
+> [Workflow Syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#name)
 
-2.  > [!IMPORTANT] > [Filter Pattern Cheat Sheet](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)
+> [!IMPORTANT] 
+> [Filter Pattern Cheat Sheet](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)
 
-3.  > [!IMPORTANT] > [Events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows)
+> [!IMPORTANT] 
+> [Events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows)
 
-4.  [Skip Workflow Runs](https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs)
+[Skip Workflow Runs](https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs)
 
 - Skip instructions only apply to the push and pull_request events.
 
@@ -23,7 +26,7 @@ GitHub Action Lab
 
 ```
 
-5. [Working-Directory](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrun)
+[Working-Directory](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrun)
 
 [Expressions](https://docs.github.com/en/actions/learn-github-actions/expressions#about-expressions)
 
