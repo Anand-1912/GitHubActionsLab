@@ -2,7 +2,7 @@ GitHub Action Lab
 
 [![Path Filters Workflow](https://github.com/Anand-1912/GitHubActionsLab/actions/workflows/07paths-filter-workflow.yml/badge.svg)](https://github.com/Anand-1912/GitHubActionsLab/actions/workflows/07paths-filter-workflow.yml)
 
-[![Matrix Workflow - Fail Fast](https://github.com/Anand-1912/GitHubActionsLab/actions/workflows/32matrix_job_fail_fast.yml/badge.svg)](https://github.com/Anand-1912/GitHubActionsLab/actions/workflows/32matrix_job_fail_fast.yml)
+[![Matrix Job - Fail Fast Workflow](https://github.com/Anand-1912/GitHubActionsLab/actions/workflows/32matrix_job_fail_fast.yml/badge.svg)](https://github.com/Anand-1912/GitHubActionsLab/actions/workflows/32matrix_job_fail_fast.yml)
 ---
 
 ## References

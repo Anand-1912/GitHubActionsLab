@@ -9,7 +9,7 @@ on:
         default: true
 jobs:
   matrix-job:
-    continue-on-error: ${{inputs.fail_fast}}
+    continue-on-error: ${{!inputs.fail_fast}}
     strategy:
       fail-fast: ${{inputs.fail_fast}}
       max-parallel: 2
