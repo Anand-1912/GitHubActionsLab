@@ -45,6 +45,7 @@ jobs:
 
  - An action can be used from Public Repository, Private Repository, Docker Hub and other container registries like Github Container Registry.
 
+[Status Badges](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)
 
 [Skip Workflow Runs](https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs)
 
