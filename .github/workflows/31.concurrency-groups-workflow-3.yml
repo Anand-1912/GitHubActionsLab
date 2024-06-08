@@ -5,7 +5,7 @@
 # This means that there can be at most one running and one pending job in a concurrency group at any time.
 
 name: Concurrency Group Workflow 3
-run-name: first workflow in the group executed by @${{ github.actor }}
+run-name: third workflow in the group executed by @${{ github.actor }}
 on: workflow_dispatch
 concurrency:
   group: "CLIQUE"
@@ -16,8 +16,5 @@ jobs:
       - name: step-1 (sleep for 20 seconds)
         run: |
           echo "this is Concurrency Group Workflow 3"
+          echo "Another Workflow from the same concurrency group hasn't been triggered after I got triggered and queued"
           sleep 20
-      - name: step-2
-        if: ${{ cancelled() }}
-        run: |
-          echo "Another workflow from the same concurrency group has been triggered after this one got triggered"
