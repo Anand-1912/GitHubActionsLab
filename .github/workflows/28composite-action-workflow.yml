@@ -1,7 +1,7 @@
 name: Composite Action Workflow # name of the workflow
 on:
   push:
-    branches: # filter - triggered when push targets the main branch
+    branches-ignore:
       - main
 jobs:
   lint:

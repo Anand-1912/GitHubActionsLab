@@ -1,8 +1,12 @@
 GitHub Action Lab
 
+[![Path Filters Workflow](https://github.com/Anand-1912/GitHubActionsLab/actions/workflows/07paths-filter-workflow.yml/badge.svg)](https://github.com/Anand-1912/GitHubActionsLab/actions/workflows/07paths-filter-workflow.yml)
 ---
 
 ## References
+
+> [!IMPORTANT]
+> [Docs Home](https://docs.github.com/en/actions)
 
 > [!IMPORTANT] 
 > [Workflow Syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#name)
@@ -12,6 +16,35 @@ GitHub Action Lab
 
 > [!IMPORTANT] 
 > [Events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows)
+
+> [!IMPORTANT]
+> [Using - Actions](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses)
+
+```
+Example: 
+
+Using a public action
+
+{owner}/{repo}@{ref}
+
+You can specify a branch, ref, or SHA in a public GitHub repository.
+
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        # Uses the default branch of a public repository
+        uses: actions/heroku@main
+      - name: My second step
+        # Uses a specific version tag of a public repository
+        uses: actions/aws@v2.0.1
+        
+```
+
+**Note**.
+
+ - An action can be used from Public Repository, Private Repository, Docker Hub and other container registries like Github Container Registry.
+
 
 [Skip Workflow Runs](https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs)
 
