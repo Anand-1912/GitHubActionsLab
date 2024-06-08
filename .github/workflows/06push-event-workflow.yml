@@ -6,6 +6,9 @@
 
 # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
 
+# The push event runs your workflow when you push a commit or tag,
+# or when you create a repository from a template
+
 name: Push Workflow
 on:
   push:

@@ -19,6 +19,7 @@ on:
         type: string
         required: true
         description: "Operation to perform on the operands. valid inputs are +,-,*,/"
+    # Outputs of the Reusable Workflow
     outputs:
       sum:
         description: "sum"
@@ -34,11 +35,6 @@ on:
         value: ${{ jobs.first-job.outputs.quotient}}
 jobs:
   first-job:
-    outputs:
-      sum: ${{steps.step-add.outputs.result}}
-      difference: ${{steps.step-substract.outputs.result}}
-      product: ${{steps.step-multiply.outputs.result}}
-      quotient: ${{steps.step-divide.outputs.result}}
     runs-on: ubuntu-latest
     steps:
       - name: step-add
@@ -80,3 +76,9 @@ jobs:
           quotient=$(( op1 / op2 ))
           echo "The quotient when $op1 is divided by $op2 is $quotient"
           echo "result=$quotient" >> $GITHUB_OUTPUT
+    # outputs of the job
+    outputs:
+      sum: ${{steps.step-add.outputs.result}}
+      difference: ${{steps.step-substract.outputs.result}}
+      product: ${{steps.step-multiply.outputs.result}}
+      quotient: ${{steps.step-divide.outputs.result}}
