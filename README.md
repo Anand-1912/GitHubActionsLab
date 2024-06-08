@@ -1,10 +1,29 @@
 GitHub Action Lab
 
+---
+
 ## References
 
-[Skip Workflow Runs](https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs)
+1.  > [!IMPORTANT] > [Workflow Syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#name)
 
-[Working-Directory](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrun)
+2.  > [!IMPORTANT] > [Filter Pattern Cheat Sheet](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)
+
+3.  > [!IMPORTANT] > [Events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows)
+
+4.  [Skip Workflow Runs](https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs)
+
+- Skip instructions only apply to the push and pull_request events.
+
+```Commit Messages
+[skip ci]
+[ci skip]
+[no ci]
+[skip actions]
+[actions skip]
+
+```
+
+5. [Working-Directory](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrun)
 
 [Expressions](https://docs.github.com/en/actions/learn-github-actions/expressions#about-expressions)
 
@@ -61,3 +80,17 @@ GitHub Action Lab
 [Job Permissions](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs)
 
 - [How ODIC tokens are used in deploy pages actions](https://github.com/actions/deploy-pages/issues/329)
+
+### About Runner Groups
+
+- Enterprise and organization owners can use runner groups to control access to self-hosted runners and larger GitHub-hosted runners at the organization and/or enterprise levels. Runner groups collect sets of runners and create a security boundary around them, allowing you to decide which organizations or repositories are permitted to run jobs on those sets of machines. Policies then control which repositories in an organization have access to which runner group(s).
+
+### Job Summaries
+
+- [Reference 1](https://github.blog/2022-05-09-supercharging-github-actions-with-job-summaries/)
+
+- [Reference 2](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions?tool=bash#adding-a-job-summary)
+
+## To Do:
+
+1. Check differences between the Default Environment Variables and Context Variables
