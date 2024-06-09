@@ -6,6 +6,8 @@
 
  - [metadata syntax](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions)
 
+ - [managing github action settings for a repo](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)
+
 2. Types of Custom Actions
 
    - Javascript Actions
