@@ -1,0 +1,9 @@
+name: Single Event Workflow #name is not mandatory
+run-name: triggered by ${{github.actor}} #name given to the workflow run (RUN)
+on: workflow_dispatch #https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-a-single-event
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello, World
+        run: echo "Hello, World!"

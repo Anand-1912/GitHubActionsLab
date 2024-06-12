@@ -1,0 +1,12 @@
+name: Schedule Event Workflow
+run-name: workflow scheduled to run at ${{github.event.schedule}}
+on:
+  schedule:
+    - cron: "1 1 1 1 1"
+    #1:01 AM on January 1st, but only if that day is also a Monday.
+jobs:
+  scheduled-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print the schedule
+        run: echo "${{github.event.schedule}}"

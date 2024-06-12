@@ -20,6 +20,9 @@ GitHub Action Lab
 > [Events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows)
 
 > [!IMPORTANT]
+> [metadata syntax](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions)
+
+> [!IMPORTANT]
 > [Matrix Strategy](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)
 
 ```
@@ -90,6 +93,8 @@ jobs:
 **Note**.
 
  - An action can be used from Public Repository, Private Repository, Docker Hub and other container registries like Github Container Registry.
+
+[CodeQL-example](https://github.com/actions/javascript-action/blob/main/.github/workflows/codeql-analysis.yml)
 
 [Status Badges](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)
 
@@ -177,3 +182,34 @@ jobs:
 ## To Do:
 
 1. Check differences between the Default Environment Variables and Context Variables
+
+
+
+Study Guide.
+----
+
+1) [Single Event](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-a-single-event)
+
+2) [Multiple Events](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#using-multiple-events)
+
+
+3) Schedule Events
+ 
+ - [Schedule Event - Workflow Syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onschedule)
+
+ - Schedule Event
+ 
+  >[!IMPORTANT]
+  >[Schedule Event](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)
+
+ - Cron Expression
+
+    ┌───────────── minute (0 - 59)
+    │ ┌───────────── hour (0 - 23)
+    │ │ ┌───────────── day of the month (1 - 31)
+    │ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+    │ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+    │ │ │ │ │
+    │ │ │ │ │
+    │ │ │ │ │
+    * * * * *
