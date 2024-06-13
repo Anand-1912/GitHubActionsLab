@@ -198,7 +198,7 @@ Study Guide.
  - [Schedule Event - Workflow Syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onschedule)
 
  - Schedule Event
- 
+
   >[!IMPORTANT]
   >[Schedule Event](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)
 
@@ -213,3 +213,10 @@ Study Guide.
     │ │ │ │ │
     │ │ │ │ │
     * * * * *
+
+4) Manual Events
+
+   - [Repository Dispatch](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#repository_dispatch)
+
+   - [Workflow Dispatch](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)
+     

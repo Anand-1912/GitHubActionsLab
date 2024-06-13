@@ -1,3 +1,16 @@
+# POST: https://api.github.com/repos/Anand-1912/GitHubActionsLab/dispatches
+# Accept: application/vnd.github+json
+# Authorization: Bearer <<PAT_CLASSIC_SCOPED_TO_REPO>>
+# Payload 1 : {"event_type":"say-hello","client_payload":{"name":"Anand"}}
+# Payload 2 : {"event_type":"say-hello"}
+# Response: 204 NO CONTENT
+
+# https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-dispatch-event
+
+# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#repository_dispatch
+
+# https://docs.github.com/en/actions/learn-github-actions/contexts#steps-context
+
 name: Respository Dispatch Workflow
 run-name: workflow triggered by ${{github.triggering_actor}}
 on:
