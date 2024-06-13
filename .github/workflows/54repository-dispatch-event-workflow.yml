@@ -1,0 +1,16 @@
+name: Respository Dispatch Workflow
+run-name: workflow triggered by ${{github.triggering_actor}}
+on:
+  repository_dispatch:
+    types: [say-hello] #event_type, so payload should have this event_type for the workflow to run
+jobs:
+  hello-job:
+    runs-on: ubuntu-latest
+    steps:
+      - id: hello-to-name-step
+        if: ${{github.event.client_payload.name && github.event.client_payload.name != ''}}
+        name: hello-to-name-step
+        run: echo "Hello, ${{github.event.client_payload.name}}!"
+      - name: hello-world-step
+        if: ${{steps.hello-to-name-step.outcome == 'skipped'}}
+        run: echo "Hello, World!"
