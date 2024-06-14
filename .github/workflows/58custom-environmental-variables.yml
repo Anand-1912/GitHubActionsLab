@@ -11,4 +11,4 @@ jobs:
       - name: print env
         env:
           step-scope-env-var: step
-        run: echo ${{toJSON(env)}}
+        run: echo "${{toJson(env)}}"
