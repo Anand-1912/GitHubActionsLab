@@ -219,4 +219,12 @@ Study Guide.
    - [Repository Dispatch](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#repository_dispatch)
 
    - [Workflow Dispatch](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)
+
+5) Using Secrets in Github Actions
+
+   - [Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)
+
+6)  Workflow Commands
+
+    - [Workflow Commands](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#about-workflow-commands)
      

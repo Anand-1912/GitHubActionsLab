@@ -1,0 +1,42 @@
+#echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
+
+name: Workflow-Commands
+run-name: workflow triggered by ${{github.actor}}
+on: workflow_dispatch
+jobs:
+  commands-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: debug
+        run: |
+          echo "::debug::This is a debug message"
+
+      - name: warning
+        run: echo "::warning::This is a warning message"
+
+      - name: notice
+        run: echo "::notice::This is a notice message"
+
+      - name: mask a value
+        run: echo "::add-mask::Mona The Octocat"
+
+      - name: set an environment variable
+        run: echo "fav_day=monday" >> "$GITHUB_ENV"
+      - name: print the environment variable
+        run: echo "$fav_day"
+
+      - name: Set color
+        id: color-selector
+        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+      - name: Get color
+        env:
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
+        run: echo "The selected color is $SELECTED_COLOR"
+
+      - name: Group of log lines
+        run: |
+          echo "::group::cloud providers"
+          echo "AWS"
+          echo "GCP"
+          echo "Azure"
+          echo "::endgroup::
