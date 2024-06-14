@@ -39,4 +39,4 @@ jobs:
           echo "AWS"
           echo "GCP"
           echo "Azure"
-          echo "::endgroup::
+          echo "::endgroup::"
