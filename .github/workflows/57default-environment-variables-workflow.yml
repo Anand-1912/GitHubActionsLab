@@ -1,0 +1,9 @@
+name: Default Environmental Variables
+run-name: workflow triggered by ${{github.actor}}
+on: workflow_dispatch
+jobs:
+  print-env-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print-env-variables
+        run: printenv
