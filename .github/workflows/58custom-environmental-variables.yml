@@ -1,0 +1,14 @@
+name: Custom Environmental Variables
+on: workflow_dispatch
+env:
+  workflow-scope-env-var: workflow
+jobs:
+  print-env-contxt-job:
+    runs-on: ubuntu-latest
+    env:
+      job-scope-env-var: job
+    steps:
+      - name: print env
+        env:
+          step-scope-env-var: step
+        run: echo ${{toJSON(env)}}
