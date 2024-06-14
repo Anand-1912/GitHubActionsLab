@@ -1,0 +1,23 @@
+name: Dependent Jobs Workflow
+run-name: workflow triggered by ${{github.actor}}
+on: workflow_dispatch
+jobs:
+  main-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print-message
+        run: echo "Hello from main job"
+      - name: set-output
+        id: set-output-step
+        run: |
+          echo "info=hello to you, dependent job! from main job" >> "$GITHUB_OUTPUT"
+    outputs:
+      info: ${{steps.set-output-step.outputs.info}}
+  dependent-job:
+    needs: main-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: print-message
+        run: echo "Hello from dependent job"
+      - name: print-info-from-main-job
+        run: echo "message from main job- ${{needs.main-job.outputs.info}}""
