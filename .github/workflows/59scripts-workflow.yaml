@@ -10,9 +10,11 @@ jobs:
 
       - name: check-out-code
         uses: actions/checkout@v4
+      - name: ls
+        run: ls -la
       - name: make-the-script-file-executable
-        working-directory: ./scripts
+        working-directory: scripts
         run: chmod +x hello.sh
       - name: run-the-script
-        working-directory: ./scripts
+        working-directory: scripts
         run: ./hello.sh
