@@ -238,3 +238,6 @@ Study Guide.
 
 9) Adding Scripts to the workflow
    [Scripts](https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions#adding-scripts-to-your-workflow)
+
+10) Passing data between Jobs
+    [Artifacts](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#passing-data-between-jobs-in-a-workflow)
