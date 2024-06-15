@@ -1,4 +1,4 @@
-name: Artifacts Workflow
+name: NewJobArtifactsWorkflow
 on: workflow_dispatch
 jobs:
   first-job:
@@ -34,7 +34,7 @@ jobs:
     needs: second-job
     steps:
       - name: download-message-artifact
-        uses: actions/download-artifact
+        uses: actions/download-artifact@v4
         with:
           name: message_from_job2
       - name: print-msg-from-job2
@@ -42,7 +42,7 @@ jobs:
           cat message.txt 
           echo "Hello from Job 3." >> message.txt
       - name: upload-message-artifact
-        uses: actions/upload-artifact
+        uses: actions/upload-artifact@v4
         with:
           name: message_from_job3
           path: message.txt
