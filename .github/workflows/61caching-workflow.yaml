@@ -1,0 +1,22 @@
+name: Caching Workflow
+on: workflow_dispatch
+jobs:
+  caching-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check-out
+        uses: actions/checkout@v4
+
+      - name: cache-dependencies
+        id: cache-npm
+        uses: actions/cache@v3
+        with:
+          key: npm-deps-${{ hashFiles('**/Caching/package.json') }}
+          path: "~/.npm"
+
+      - name: check-cache-hit
+        run: echo "Is Cache Hit? ${{ steps.cache-npm.outputs.cache-hit }}"
+
+      - name: install-dependencies
+        working-directory: Caching
+        run: npm install

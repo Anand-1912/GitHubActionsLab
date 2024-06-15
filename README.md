@@ -241,3 +241,33 @@ Study Guide.
 
 10) Passing data between Jobs
     [Artifacts](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#passing-data-between-jobs-in-a-workflow)
+
+11) [Disabling and enabling a workflow](https://docs.github.com/en/actions/using-workflows/disabling-and-enabling-a-workflow)
+
+```
+gh workflow disable <WORKFLOW NAME OR ID OR FILENAME>
+
+gh workflow enable <WORKFLOW NAME OR ID OR FILENAME>
+```
+
+11) [Debugging Workflows](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)
+
+  - refer Debugging folder for screenshots 
+
+```
+set the following Repository level configuration varaibles
+
+ACTIONS_RUNNER_DEBUG : true
+ACTIONS_STEP_DEBUG : true
+
+```
+
+12) [Downloading Logs from Web UI](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#downloading-logs)
+
+13) [Deleting Logs](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#downloading-logs)
+
+14) [ Downloading logs using API](https://docs.github.com/en/rest/actions/workflow-runs?apiVersion=2022-11-28#download-workflow-run-logs)
+
+15) [starter workflows](https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization)
+
+16) [Caching](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#about-caching-workflow-dependencies)
