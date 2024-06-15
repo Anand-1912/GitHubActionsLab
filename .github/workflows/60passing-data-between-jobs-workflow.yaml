@@ -1,0 +1,49 @@
+#https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts#passing-data-between-jobs-in-a-workflow
+name: Artifacts Workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: write-msg
+        run: echo "Hello from Job 1." >> message.txt
+      - name: upload-message-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: message_from_job1
+          path: message.txt
+    # the second job has to wait until the firs job is completed so that it can download the artifact
+  second-job:
+    runs-on: ubuntu-latest
+    needs: first-job
+    steps:
+      - name: download-message-artifact
+        uses: actions/download-artifact
+        with:
+          name: message_from_job1
+      - name: print-msg-from-job1
+        run: |
+          cat message.txt 
+          echo "Hello from Job 2." >> message.txt
+      - name: upload-message-artifact
+        uses: actions/upload-artifact
+        with:
+          name: message_from_job2
+          path: message.txt
+  third-job:
+    runs-on: ubuntu-latest
+    needs: second-job
+    steps:
+      - name: download-message-artifact
+        uses: actions/download-artifact
+        with:
+          name: message_from_job2
+      - name: print-msg-from-job2
+        run: |
+          cat message.txt 
+          echo "Hello from Job 3." >> message.txt
+      - name: upload-message-artifact
+        uses: actions/upload-artifact
+        with:
+          name: message_from_job3
+          path: message.txt

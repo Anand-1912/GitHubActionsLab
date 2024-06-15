@@ -235,3 +235,6 @@ Study Guide.
 8) Github Actions Authentication
 
    [secret GITHUB_TOKEN](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)
+
+9) Adding Scripts to the workflow
+   [Scripts](https://docs.github.com/en/actions/learn-github-actions/essential-features-of-github-actions#adding-scripts-to-your-workflow)
