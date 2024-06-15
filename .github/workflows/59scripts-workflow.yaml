@@ -13,8 +13,8 @@ jobs:
       - name: ls
         run: ls -la
       - name: make-the-script-file-executable
-        working-directory: scripts
+        working-directory: Scripts
         run: chmod +x hello.sh
       - name: run-the-script
-        working-directory: scripts
+        working-directory: Scripts
         run: ./hello.sh
