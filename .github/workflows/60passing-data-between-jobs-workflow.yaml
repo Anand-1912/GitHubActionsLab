@@ -17,7 +17,7 @@ jobs:
     needs: first-job
     steps:
       - name: download-message-artifact
-        uses: actions/download-artifact
+        uses: actions/download-artifact@v4
         with:
           name: message_from_job1
       - name: print-msg-from-job1
@@ -25,7 +25,7 @@ jobs:
           cat message.txt 
           echo "Hello from Job 2." >> message.txt
       - name: upload-message-artifact
-        uses: actions/upload-artifact
+        uses: actions/upload-artifact@v4
         with:
           name: message_from_job2
           path: message.txt
