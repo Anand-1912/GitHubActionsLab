@@ -1,0 +1,21 @@
+name: hello-world-composite-action
+inputs:
+  name1:
+    required: true
+    description: name 1 to greet
+  name2:
+    required: true
+    description: name 2 to greet
+runs:
+  using: "composite"
+  steps:
+    - name: greet name 1
+      shell: bash
+      env:
+        NAME_1: ${{ inputs.name1 }}
+      run: echo "Hello $NAME_1"
+    - name: greet name 2
+      shell: bash
+      env:
+        NAME_2: ${{ inputs.name2 }}
+      run: echo "Hello $NAME_2"
