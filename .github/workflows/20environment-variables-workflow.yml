@@ -17,13 +17,16 @@ jobs:
     steps:
       - name: Get Code
         uses: actions/checkout@v3
+
+        # if cache hit => restoring cache identified by the key from github owned storage to the path ~/.npm
+        # if cache miss => when the job is done, copy the contents present in the path '~/.npm' into cache so that it can be used in subsequent jobs if used again or used in subsequent runs
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
           path: ~/.npm
           key: npm-deps-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
-        run: npm ci
+        run: npm ci #
       - name: Run server
         run: npm start & npx wait-on http://127.0.0.1:$PORT
       - name: Run tests
