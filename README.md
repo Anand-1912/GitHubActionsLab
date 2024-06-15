@@ -228,3 +228,10 @@ Study Guide.
 
     - [Workflow Commands](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#about-workflow-commands)
      
+7) Default Environmental Variables
+   
+    - [Variables](https://docs.github.com/en/actions/learn-github-actions/variables)
+
+8) Github Actions Authentication
+
+   [secret GITHUB_TOKEN](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)
