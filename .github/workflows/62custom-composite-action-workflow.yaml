@@ -1,0 +1,13 @@
+name: Custom Composite Action Workflow
+on: workflow_dispatch
+jobs:
+  hello-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Print Hello
+        uses: "./.github/actions/hello-world-composite-action"
+        with:
+          name1: ${{github.triggering_actor}}
+          name2: "World"

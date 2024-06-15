@@ -11,5 +11,5 @@ outputs:
   time: # id of output
     description: "The time we greeted you"
 runs:
-  using: "node20"
+  using: "node20" #Javascript Runtime
   main: "dist/index.js"
