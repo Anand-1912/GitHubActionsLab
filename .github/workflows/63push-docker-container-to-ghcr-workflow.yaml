@@ -11,7 +11,7 @@ jobs:
       - name: login-build-push
         working-directory: GHCR
         run: |
-          docker login -u ${{github.actor}} -p ${{secrets.GHCR_PAT}}
+          docker login -u ${{github.actor}} -p ${{secrets.GHCR_PAT}} ghcr.io
           docker build -t ghcr.io/anand-1912/helloworld:latest . 
           docker run ghcr.io/anand-1912/helloworld:latest
           docker push ghcr.io/anand-1912/helloworld:latest
