@@ -43,6 +43,7 @@ When we use containers to run a Job or an Action, they have to be executed insid
  # metadata file
 
 name: "Hello World"
+author: "Anand"
 description: "Greet someone and record the time"
 inputs:
   who-to-greet: # id of input
@@ -54,9 +55,14 @@ outputs:
     description: "The time we greeted you"
 runs:
   using: "node20" #Javascript Runtime
-  main: "dist/index.js"
+  pre: 'setup.js'
+  main: 'index.js'
+  post: 'cleanup.js'
 
  ``` 
+
+
+ [Metadata Syntax](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions)
 
 ### Docker Container Actions
 
@@ -83,4 +89,26 @@ runs:
   args:
     - ${{ inputs.who-to-greet }}
 
+```
+
+
+```js
+//setting exit code in JS Action
+
+try {
+  // something
+} catch (error) {
+  core.setFailed(error.message);
+}
+
+```
+
+
+```sh
+#setting exit code in Docker Container Action
+
+if <condition> ; then
+  echo "Game over!"
+  exit 1
+fi
 ```

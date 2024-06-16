@@ -8,6 +8,9 @@ GitHub Action Lab
 ## References
 
 > [!IMPORTANT]
+> [GH Certified](https://ghcertified.com/study_resources/)
+
+> [!IMPORTANT]
 > [Docs Home](https://docs.github.com/en/actions)
 
 > [!IMPORTANT] 
@@ -271,3 +274,5 @@ ACTIONS_STEP_DEBUG : true
 15) [starter workflows](https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization)
 
 16) [Caching](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#about-caching-workflow-dependencies)
+
+17) [Creating Actions](https://docs.github.com/en/actions/creating-actions)
