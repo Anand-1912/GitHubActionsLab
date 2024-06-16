@@ -1,0 +1,14 @@
+name: Push Hello World Image To GHCR Workflow
+on: workflow_dispatch
+jobs:
+  push-image:
+    defaults:
+      run:
+        working-directory: GHCR
+    runs-on: ubuntu-latest
+    steps:
+      - name: login-build-push
+        run: |
+          docker login -u ${{github.actor}} -p ${{secrets.GHCR_PAT}}
+          docker build -t ghcr.io/anand-1912/helloworld:latest . 
+          docker push ghcr.io/anand-1912/helloworld:latest
