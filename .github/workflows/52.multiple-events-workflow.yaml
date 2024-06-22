@@ -6,6 +6,10 @@ run-name: Workflow triggered for ${{github.event_name}}
 # If multiple triggering events for your workflow occur at the same time,
 # multiple workflow runs will be triggered.
 
+# gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
+# type of inputs supported by workflow_dispatch => string, number, boolean, environment and choice
+# inputs an be accessed ${{inputs}} context or ${{github.event.inputs.}}
+
 on: [workflow_dispatch, push]
 jobs:
   first-job:

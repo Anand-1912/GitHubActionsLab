@@ -112,3 +112,33 @@ if <condition> ; then
   exit 1
 fi
 ```
+
+### Publishing Actions to GitHub Market Place - Requirements
+
+- The action must be in a public repository.
+- Each repository must contain a single action.
+- Each repository must not contain any workflow files.
+- The action's metadata file (action.yml or action.yaml) must be in the root directory of the repository.
+- The name in the action's metadata file must be unique.
+- The name cannot match an existing action name published on GitHub Marketplace.
+- The name cannot match a user or organization on GitHub, unless the user or organization owner is publishing the action. For example, only the GitHub organization can publish an action named github.
+- The name cannot match an existing GitHub Marketplace category.
+- GitHub reserves the names of GitHub features.
+
+### Sharing Actions and Reusable Workflows in an Enterprise
+
+- **Enterprise Sharing:**
+  - Share actions and reusable workflows within your enterprise without publishing them publicly.
+  - This applies if your organization is owned by an enterprise account.
+
+- **Repository Access:**
+  - Allow GitHub Actions workflows to access an internal or private repository containing the action or reusable workflow.
+
+- **Usage Scope:**
+  - Actions and reusable workflows in internal or private repositories can be used in other internal or private repositories owned by the same organization or any organization owned by the enterprise.
+  - Internal repository actions cannot be used in public repositories.
+  - Private repository actions cannot be used in public or internal repositories.
+
+- **Warning:**
+  - Making a private repository accessible to workflows in other repositories can indirectly allow outside collaborators to access the private repository by viewing workflow logs.
+  - GitHub provides a scoped installation token to the runner with read access to the repository, which expires after one hour.

@@ -43,11 +43,11 @@ jobs:
  2) When a reusable workflow is triggered by a caller workflow, the **github context is always associated with the caller workflow**.
 
  
- 3) Actions and Workflows defined in a Private repo of an Organization can be accessed by other Private and Public repos in the Organization if it is enabled (ar the called workflow repos).
+ 3) Actions and Workflows defined in a Private repo of an Organization can be accessed by other Private and Public repos in the Organization if it is enabled (at the called workflow repos).
 
  4) If the caller is private, it can access workflows defined in both Public and private(if allowed) workflows.
 
-    If the caller is public, it can access only public repo's workflows.
+    If the caller is public, it can access only public repo's workflows. (contradicts 3?)
 
  5) The GITHUB_TOKEN permissions passed from the caller workflow can be only downgraded (not elevated) by the called workflow. 
 
