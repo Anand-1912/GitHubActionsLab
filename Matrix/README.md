@@ -6,7 +6,7 @@
 
 [ref](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#defining-the-maximum-number-of-concurrent-jobs)
 
-2. If one job fails in the matrix, the remaining un-finished jobs will be cancelled and skipped be default but this can be changed by using **continue-on-error** at the job level.
+2. If one job fails in the matrix, the remaining un-finished jobs will be cancelled and skipped by default but this can be changed by using **continue-on-error** at the job level.
 
 [ref](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs#handling-failures)
 

@@ -1,13 +1,13 @@
 CREATING A STARTER WORKFLOW IN AN ORGANIZATION
 ----
 
-1) Create a public repository named **.github**
+1) Create a **public** repository named **.github**
 
 2) Create a directory called **workflow-templates**
 
 3) Create a workflow file and metadata file.
 
-   example: 
+   #### example: 
 
    if *tdk-cicd-dotnet.yml* is the workflow filename then the metadata file should be *tdk-cicd-dotnet.properties.json*
  
