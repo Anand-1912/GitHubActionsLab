@@ -134,7 +134,8 @@
 
     ```
     echo "MY_ENV_VARIABLE=somevalue" >> "$GITHUB_ENV"
-    echo "MY_OUT=somevalue" >> "GITHUB_OUTPUT"
+    echo "MY_OUT=somevalue" >> "$GITHUB_OUTPUT"
+    echo "$HOME/.local/bin" >> $GITHUB_PATH
     echo "::debug::This is a debug message"
 
     ```
