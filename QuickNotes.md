@@ -2,11 +2,11 @@
 
 ``` yml
   on: workflow_dispatch
-   ```
+```
 
 2) ## Multiple events
 
-   ``` yml
+  ``` yml
   on: [ push, workflow_dispatch ]
   ```
 
@@ -29,7 +29,7 @@
 
   4) ## Filters
 
-  ```yml
+  ``` yml
     on: 
         push:
            branches:
@@ -48,13 +48,13 @@
 
   5) ## Glob Patterns
 
-    | * |  0 or more characters but not /     | 
+    | *  |  0 or more characters but not /     | 
 
-    | ** | 0 or more characters               |
+    | ** | 0 or more characters                |
 
-    | ? | 0 or 1 of the preceding character   |
+    | ?  | 0 or 1 of the preceding character   |
 
-    | +  1 or more of the preceding characters|
+    | +  |1 or more of the preceding characters|
   
    [0-9a-z]+ 
 
