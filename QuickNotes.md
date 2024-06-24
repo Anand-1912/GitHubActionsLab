@@ -154,8 +154,8 @@ steps:
     working-directory: Scripts
     run: chmod +x hello.sh  #in unix based runners only
   - name: run-the-script
-    working-directory: Scripts #if hello.sh is present in the "Scripts" directory
-    run: ./hello.sh
+    working-directory: Scripts #if hello.sh is present in the "Scripts" (case senstive) directory
+    run: ./hello.sh    # If /Scripts is present in PATH (System Variable) then "./" is not required  
 
 ```
 
