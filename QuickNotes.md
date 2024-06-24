@@ -48,13 +48,13 @@
 
   5) ## Glob Patterns
 
-    | *  |  0 or more characters but not /     | 
+| Symbol | Description                         |
+|--------|-------------------------------------|
+| `*`    | 0 or more characters but not `/`    |
+| `**`   | 0 or more characters                |
+| `?`    | 0 or 1 of the preceding character   |
+| `+`    | 1 or more of the preceding characters|
 
-    | ** | 0 or more characters                |
-
-    | ?  | 0 or 1 of the preceding character   |
-
-    | +  |1 or more of the preceding characters|
   
    [0-9a-z]+ 
 
