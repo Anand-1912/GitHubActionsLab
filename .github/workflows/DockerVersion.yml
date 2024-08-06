@@ -7,4 +7,4 @@ jobs:
       - name: Print greeting
         run: docker --version
       - name: Print goodbye
-        run: docker compose --version
+        run: docker compose version
