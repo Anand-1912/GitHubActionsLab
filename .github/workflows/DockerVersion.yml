@@ -4,6 +4,8 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
+      - name: link docker compose
+        run: ln -s /usr/libexec/docker/cli-plugins/docker-compose /usr/local/bin/docker-compose
       - name: Print greeting
         run: docker --version
       - name: Print goodbye
