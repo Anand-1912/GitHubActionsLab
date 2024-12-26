@@ -11,6 +11,9 @@ jobs:
       job_var1: value3
       job_var2: value4
     steps:
-      - name: Print Environment Variables
+      - name: Print Environment Variables configured via Workflow
         run: |
           echo "${{ toJson(env)}}"
+      - name: Print All Environmental Variables
+        run: |
+          printenv
