@@ -1,0 +1,8 @@
+name: Tracking Queued Jobs
+on: workflow_job
+jobs:
+  print-queued-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print event
+        run: echo "${{toJson(github.event)}}"
