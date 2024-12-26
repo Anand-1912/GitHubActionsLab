@@ -6,6 +6,8 @@
 
 - A reusable workflow is a GitHub Actions file that can be executed by other workflows. A single workflow can call multiple reusable workflows, with each reference taking up just one line of YAML. This means that the “caller” workflow may contain just a few lines of YAML, but perform a large number of tasks, since it runs each “called” workflow entirely, as if its jobs and steps were part of its own. Additionally, workflows can be [nested](https://docs.github.com/en/actions/using-workflows/reusing-workflows#nesting-reusable-workflows) up to a maximum of four levels.
 
+- You can view the reused workflows referenced in your GitHub Actions workflows as dependencies in the **dependency graph** of the repository containing your workflows.
+
 - We can pass the **Inputs and Secrets** to the Called Workflow (i.e) Reusable Workflow from the Caller Workflow
 
 ```yml
