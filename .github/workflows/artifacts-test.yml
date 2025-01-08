@@ -18,4 +18,13 @@ jobs:
         run: ls
       - name: print workspace from context variable
         run: echo "${{ github.workspace }}" 
-       
+      - name: Store Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: dotnet-test-results
+          path: ${{ github.workspace }}/tests/*//test-results.*
+      - name: Store Invalid Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: invalid-artifacts
+          path: ${{ github.workspace }}/invalidd/*//test-results.*
