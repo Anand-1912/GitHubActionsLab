@@ -1,0 +1,14 @@
+name: artifacts test
+on:
+ workflow_dispatch
+jobs:
+  first-job: 
+    runs-on: ubuntu-latest
+    steps:
+       - name: print workspace from default env variable
+         run: echo '$GITHUB_WORKSPACE'
+       - name: pront workspace from context variable
+         run: echo "${{ github.workspace }}" 
+       - name: ls
+         run: ls
+       
