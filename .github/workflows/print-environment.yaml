@@ -1,0 +1,10 @@
+name: Print Environment Workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    environment: testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: print environment
+        run: echo '${{environment}}'
+      
