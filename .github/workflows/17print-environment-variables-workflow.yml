@@ -17,3 +17,5 @@ jobs:
       - name: Print All Environmental Variables
         run: |
           printenv
+      - name: echo
+        run:  echo "$job_var1"
